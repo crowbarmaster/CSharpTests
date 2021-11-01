@@ -27,13 +27,11 @@ namespace FormTesting
                 parent.Invoke((MethodInvoker)delegate { progress.Report(-1); });
                 for (int i = 0; i < fileList.Count; i++)
                 {
-                    Task.Delay(20);
-                    if (i > 1000)
+                    Task.Delay(20); // This is just an empty task that runs for 20ms to delay the loop and avoid freezing UI. Put code here to do your scanning on files and you may not need it.
+                    parent.Invoke((MethodInvoker)delegate
                     {
-                        parent.Invoke((MethodInvoker)delegate {
-                            progress.Report(i / 10000);
-                        });
-                    }
+                        progress.Report(i / 10000);
+                    });
                 }
                 stopwatch.Stop();
                 parent.UpdateInfoLabel($"Opperation completed in {stopwatch.Elapsed.TotalSeconds} seconds. Found {fileList.Count} files.");

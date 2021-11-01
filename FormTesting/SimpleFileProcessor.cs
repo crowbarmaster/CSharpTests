@@ -30,7 +30,7 @@ namespace FormTesting
                     progressBar1.Value = 0;
                     prog = 0;
                     Invoke((MethodInvoker)delegate { infoLabel.Text = "Now scanning files on all disks..."; });
-                    Task.Delay(10).Wait();
+                    //Delay(10).Wait();
                     return;
                 }
                 progressBar1.Value = prog;
