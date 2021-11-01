@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace testing
 {
@@ -22,12 +18,10 @@ namespace testing
             stopwatch.Start();
             foreach (string volume in Environment.GetLogicalDrives())
             {
-
                 Console.WriteLine($"Drive {volume} has {ProcessAllFiles(volume)} files.");
                 fileCount = 0;
             }
             stopwatch.Stop();
-
             Console.WriteLine($"Opperation completed in {stopwatch.Elapsed.TotalSeconds} seconds.");
         }
 
@@ -45,7 +39,7 @@ namespace testing
                 }
                 catch
                 {
-                    // swallow, log, whatever
+                    // swallow errors.
                 }
             }
             return fileCount;
